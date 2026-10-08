@@ -1,3 +1,4 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name=theme-color content="#07091a"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <title>Dra. Barbara Guedes</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -767,6 +768,202 @@ footer p{font-size:.76rem;color:var(--g3)}
   0%,100%{border-color:rgba(184,159,212,0.14);color:var(--g2)}
   50%{border-color:rgba(184,159,212,0.5);color:var(--lilac-l)}
 }
+
+/* ===================================================================
+   MOBILE-FIRST OVERRIDES (≤640px) — layout pensado para celular
+   =================================================================== */
+.nav-cta .sm{display:none}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+a,button{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+
+/* tablet: hero com foto maior ao lado */
+@media(max-width:860px) and (min-width:641px){
+  .hero-photo-frame{width:170px;height:226px}
+  .hero-inner{gap:32px}
+}
+
+@media(max-width:640px){
+  body{font-size:16px;line-height:1.6}
+  .wrap{padding:0 20px}
+
+  /* ---- performance: menos efeitos pesados no celular ---- */
+  body::before{animation:none}
+  .blob{filter:blur(60px)}
+  .blob-1{width:380px;height:380px;top:-100px;left:-140px}
+  .blob-2{width:300px;height:300px;bottom:0;right:-120px}
+  .blob,.btn-ghost,.wa-btn-bounce svg,.wa-btn-glow,.float-wa{animation:none}
+  .btn-primary::after,.nav-cta::after,.cta-wa::after,.wa-btn-shimmer::after{animation-duration:3.6s}
+  .fade-up{transform:translateY(14px);transition-duration:.45s}
+  /* sem "hover" em tela de toque */
+  .prob-card:hover,.pillar:hover{transform:none}
+
+  /* ---- NAV ---- */
+  .nav{
+    height:calc(56px + env(safe-area-inset-top,0px));
+    padding:env(safe-area-inset-top,0px) 16px 0;
+    background:rgba(7,9,26,.92);
+  }
+  .nav-logo{font-size:15px;line-height:1.2}
+  .nav-logo span{display:none}
+  .nav-cta{
+    display:inline-flex!important;
+    font-size:13px;padding:0 14px;height:40px;gap:7px;border-radius:10px;
+  }
+  .nav-cta .lg{display:none}
+  .nav-cta .sm{display:inline}
+  .nav-cta svg{width:16px;height:16px}
+
+  /* ---- HERO: empilhado, foto em cima, tudo centralizado ---- */
+  .hero{min-height:0;padding-top:calc(56px + env(safe-area-inset-top,0px));display:block}
+  .hero-inner{
+    display:flex;flex-direction:column;align-items:center;
+    gap:28px;padding:28px 20px 44px;
+  }
+  .hero-photo-wrap{order:-1;width:auto;display:block}
+  .hero-photo-frame{
+    width:152px;height:200px;
+    border-radius:80px 80px 70px 70px;
+    box-shadow:0 0 0 6px rgba(184,159,212,.06),0 16px 40px rgba(0,0,0,.45);
+  }
+  .hero-photo-ring{top:-10px;left:-10px;right:-10px;bottom:-10px;border-radius:90px 90px 80px 80px}
+  .hero-content{align-items:center;text-align:center;width:100%}
+  .hero-badge{
+    font-size:10.5px;letter-spacing:.08em;padding:8px 14px 8px 10px;
+    margin-bottom:18px;max-width:100%;text-align:left;
+  }
+  .hero h1{
+    font-size:clamp(2rem,9.2vw,2.5rem);line-height:1.12;
+    text-align:center;margin-bottom:14px;text-wrap:balance;
+  }
+  .hero h1 br{display:none}
+  .hero-sub{font-size:1rem;line-height:1.65;text-align:center;margin:0 auto 26px;max-width:34ch}
+  .hero-actions{flex-direction:column;width:100%;gap:10px}
+  .hero-actions a{width:100%;justify-content:center;text-align:center}
+  .btn-primary,.btn-ghost,.wa-btn,.cta-wa{min-height:52px;font-size:1rem;border-radius:12px;padding:14px 20px}
+  .btn-ghost{min-height:48px;font-size:.95rem}
+  .hero-stats-row{
+    width:100%;display:grid;grid-template-columns:repeat(3,1fr);gap:0;
+    margin-top:28px;padding-top:22px;
+  }
+  .hstat{text-align:center;min-width:0;padding:0 4px}
+  .hstat+.hstat{border-left:1px solid var(--border)}
+  .hstat strong{font-size:1.55rem;margin-bottom:6px}
+  .hstat span{display:block;font-size:.66rem;line-height:1.35;letter-spacing:.06em}
+
+  /* ---- SEÇÕES ---- */
+  .sec-problema,.sec-tese,.sec-sobre,.sec-depo,.sec-faq,.sec-cta{padding:56px 0}
+  .sec-label{font-size:.72rem;margin-bottom:12px}
+  .sec-title{font-size:clamp(1.65rem,7.4vw,2rem);line-height:1.18;text-wrap:balance}
+  .sec-title br{display:none}
+  .sec-wa-cta{margin-top:32px}
+  .wa-btn{width:100%;max-width:none}
+
+  /* problema */
+  .problema-layout{gap:24px}
+  .problema-lead{font-size:1rem;line-height:1.7;margin-bottom:0}
+  .prob-cards{gap:10px}
+  .prob-card{padding:16px;gap:14px;border-radius:14px}
+  .prob-icon{width:28px;height:28px;margin-top:1px}
+  .prob-card h4{font-size:1rem;margin-bottom:3px;line-height:1.3}
+  .prob-card p{font-size:.92rem;line-height:1.55;color:#8f88ad}
+
+  /* modo de trabalho: passos com número em destaque */
+  .tese-lead{font-size:1rem;line-height:1.7;margin-bottom:28px}
+  .tese-pillars{gap:10px}
+  .pillar{
+    display:grid;grid-template-columns:44px 1fr;column-gap:14px;
+    padding:18px 16px;border-radius:14px;
+  }
+  .pillar-n{
+    grid-row:1 / span 2;font-size:1.6rem;font-weight:800;letter-spacing:-.02em;
+    color:rgba(184,159,212,.6);margin:0;line-height:1.05;
+  }
+  .pillar h3{font-size:1.05rem;margin-bottom:6px}
+  .pillar p{font-size:.93rem;line-height:1.6;color:rgba(255,255,255,.6)}
+
+  /* sobre */
+  .sobre-layout{gap:24px;text-align:left}
+  .sobre-photo-col{order:-1;display:block}
+  .sobre-photo-col>div{width:100%}
+  .sobre-frame{width:100%;max-width:none;height:auto;aspect-ratio:4/4.4;border-radius:18px}
+  .sobre-frame-ring{display:none}
+  .sobre-credential{font-size:.7rem;margin-bottom:12px}
+  .sobre-name{font-size:1.9rem;margin-bottom:14px}
+  .sobre-bio{font-size:1rem;line-height:1.7}
+  .sobre-list{gap:10px;margin-bottom:26px}
+  .sobre-list li{font-size:.97rem;padding-left:18px}
+  .sobre-content .btn-primary{width:100%;justify-content:center}
+
+  /* depoimentos: carrossel com "espiada" do próximo card */
+  .depo-track-wrap{margin:0 -20px;padding:0}
+  .depo-track{
+    gap:20px;padding:4px 20px 8px;
+    scroll-padding:0 20px;
+  }
+  .depo-track::after{content:'';flex:0 0 1px}
+  .depo-card{
+    flex:0 0 84%;min-width:0;max-width:340px;padding:22px 20px;border-radius:16px;
+  }
+  .depo-text{font-size:1rem;line-height:1.65;margin-bottom:18px}
+  .depo-author strong{font-size:.95rem}
+  .depo-author span{font-size:.82rem}
+  .depo-dots{gap:8px;margin-top:20px}
+  .depo-dot{width:8px;height:8px}
+  .depo-dot.active{width:24px;border-radius:4px}
+
+  /* faq */
+  .sec-faq .sec-title{margin-bottom:28px!important}
+  .faq-q{font-size:1rem;padding:18px 0;min-height:60px;gap:14px}
+  .faq-icon{font-size:1.5rem;width:28px;text-align:center}
+  .faq-a{font-size:.97rem;line-height:1.7}
+  .faq-item.open .faq-a{max-height:420px;padding-bottom:18px}
+
+  /* cta final */
+  .sec-cta .sec-title{margin-bottom:24px}
+  .cta-wa{width:100%;max-width:none;justify-content:center}
+  .sec-cta::before{width:420px;height:420px}
+
+  /* rodapé: espaço para o botão flutuante não cobrir texto */
+  footer{padding:24px 20px calc(88px + env(safe-area-inset-bottom,0px))}
+  footer p{font-size:.78rem;line-height:1.5}
+
+  /* botão flutuante */
+  .float-wa{
+    opacity:0;pointer-events:none;transition:opacity .25s,transform .2s;
+    width:56px;height:56px;right:16px;
+    bottom:calc(16px + env(safe-area-inset-bottom,0px));
+  }
+
+  /* botão flutuante só aparece depois do hero */
+  .float-wa.show{opacity:1;pointer-events:auto}
+  /* popup vira "bottom sheet" */
+  .popup-overlay{align-items:flex-end;padding:12px 12px calc(12px + env(safe-area-inset-bottom,0px))}
+  .popup-box{
+    max-width:none;border-radius:20px;padding:30px 20px 22px;
+    transform:translateY(40px);
+  }
+  .popup-box h3{font-size:1.25rem}
+  .popup-box p{font-size:.97rem;margin-bottom:20px}
+  .popup-box .cta-wa{width:100%;justify-content:center}
+  .popup-close{top:6px;right:6px;width:44px;height:44px;font-size:1.6rem;padding:0}
+}
+
+/* celulares estreitos (≤360px) */
+@media(max-width:360px){
+  .nav-logo{font-size:14px}
+  .nav-cta{padding:0 11px;font-size:12px}
+  .hero-photo-frame{width:136px;height:180px}
+  .hero h1{font-size:1.9rem}
+  .hstat strong{font-size:1.35rem}
+  .hstat span{font-size:.6rem}
+  .depo-card{flex-basis:88%}
+}
+
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .fade-up{opacity:1;transform:none}
+}
+@media(hover:hover) and (pointer:fine){.depo-track{cursor:grab}.depo-track.dragging{cursor:grabbing;user-select:none}}
 </style>
 
 <!-- NAV -->
@@ -775,7 +972,7 @@ footer p{font-size:.76rem;color:var(--g3)}
     Dra. Barbara Guedes
     <span>Urologia • Saúde hormonal • Saúde nutricional</span>
   </div>
-  <a class="nav-cta" href="https://wa.me/5500000000000?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20o%20acompanhamento%20da%20Dra.%20Barbara%20Guedes." target="_blank" rel="noopener" style="background:#25D366;color:#ffffff;border:none;"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Fale conosco no WhatsApp</a>
+  <a class="nav-cta" href="https://wa.me/5500000000000?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20o%20acompanhamento%20da%20Dra.%20Barbara%20Guedes." target="_blank" rel="noopener" style="background:#25D366;color:#ffffff;border:none;"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg><span class="lg"> Fale conosco no WhatsApp</span><span class="sm">WhatsApp</span></a>
 </nav>
 
 <!-- HERO -->
@@ -788,7 +985,7 @@ footer p{font-size:.76rem;color:var(--g3)}
         <div class="badge-dot">✦</div>
         Destaque nacional · Saúde Integrativa
       </div>
-      <h1>Recupere sua <span class="hl">energia, foco</span><br>e vitalidade.</h1>
+      <h1>Recupere sua <span class="hl">energia, foco</span><br> e vitalidade.</h1>
       <p class="hero-sub">Especialista em urologia, saúde hormonal e nutricional. Diagnóstico preciso, protocolo exclusivo, resultados mensuráveis.</p>
       <div class="hero-actions">
         <a class="btn-primary" href="https://wa.me/5500000000000?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20o%20acompanhamento%20da%20Dra.%20Barbara%20Guedes." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Fale conosco no WhatsApp</a>
@@ -815,7 +1012,7 @@ footer p{font-size:.76rem;color:var(--g3)}
     <div class="problema-layout fade-up">
       <div>
         <div class="sec-label">O problema</div>
-        <h2 class="sec-title">A medicina convencional<br>trata <span class="hl">sintomas</span>.</h2>
+        <h2 class="sec-title">A medicina convencional<br> trata <span class="hl">sintomas</span>.</h2>
         <p class="problema-lead">Exames normais, mas o corpo não responde. Isso não é envelhecimento. É déficit. <strong>Tem causa. Tem protocolo. Tem solução.</strong></p>
       </div>
       <div class="prob-cards">
@@ -936,7 +1133,7 @@ footer p{font-size:.76rem;color:var(--g3)}
 <section class="sec-cta">
   <div class="wrap">
     <div class="sec-label" style="justify-content:center;color:var(--lilac-l)">Próximo passo</div>
-    <h2 class="sec-title fade-up" style="text-align:center">Sua melhor versão começa<br>com <span class="hl">uma conversa</span>.</h2>
+    <h2 class="sec-title fade-up" style="text-align:center">Sua melhor versão começa<br> com <span class="hl">uma conversa</span>.</h2>
     <a class="cta-wa fade-up" href="https://wa.me/5500000000000?text=Ol%C3%A1!%20Gostaria%20de%20iniciar%20meu%20acompanhamento%20com%20a%20Dra.%20Barbara%20Guedes." target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
       Fale conosco no WhatsApp
@@ -970,7 +1167,8 @@ footer p{font-size:.76rem;color:var(--g3)}
 <script>
   // Navbar
   const nav = document.getElementById('navbar');
-  window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>60),{passive:true});
+  const fw=document.querySelector('.float-wa');
+  window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',scrollY>60);fw.classList.toggle('show',scrollY>innerHeight*.6)},{passive:true});
 
   // Fade-up
   const obs = new IntersectionObserver(entries=>{
@@ -988,35 +1186,55 @@ footer p{font-size:.76rem;color:var(--g3)}
     });
   });
 
-  // Depo dots + auto-advance
+  // Depoimentos: esteira com loop automático, dots, swipe (celular) e arrastar (mouse)
   const track=document.getElementById('depoTrack');
-  const dots=document.querySelectorAll('.depo-dot');
-  let depoIdx=0,depoAuto;
+  const dots=[...document.querySelectorAll('.depo-dot')];
+  let depoAuto,paused=false;
+  const cards=()=>[...track.querySelectorAll('.depo-card')];
+  const stepW=()=>{const c=cards();return c.length>1?c[1].offsetLeft-c[0].offsetLeft:c[0].offsetWidth+20};
+  const maxScroll=()=>track.scrollWidth-track.clientWidth;
+  function depoIndex(){
+    const m=maxScroll();
+    if(track.scrollLeft>=m-4)return dots.length-1;      // chegou no fim → último ponto
+    return Math.min(dots.length-1,Math.max(0,Math.round(track.scrollLeft/stepW())));
+  }
+  function paint(){const i=depoIndex();dots.forEach((d,j)=>d.classList.toggle('active',j===i))}
   function depoGoTo(i){
-    if(!track||!dots.length)return;
-    const total=dots.length;
-    depoIdx=(i+total)%total;
-    const w=track.querySelector('.depo-card').offsetWidth+20;
-    track.scrollTo({left:w*depoIdx,behavior:'smooth'});
-    dots.forEach((d,j)=>d.classList.toggle('active',j===depoIdx));
+    const left=Math.min(Math.max(0,i*stepW()),maxScroll());
+    track.scrollTo({left,behavior:'smooth'});
   }
-  function depoStartAuto(){
-    clearInterval(depoAuto);
-    depoAuto=setInterval(()=>depoGoTo(depoIdx+1),10000);
+  function depoNext(){
+    if(track.scrollLeft>=maxScroll()-4)track.scrollTo({left:0,behavior:'smooth'}); // volta ao início
+    else depoGoTo(Math.round(track.scrollLeft/stepW())+1);
   }
+  function depoStartAuto(){clearInterval(depoAuto);depoAuto=setInterval(()=>{if(!paused&&!document.hidden)depoNext()},6000)}
   if(track&&dots.length){
-    track.addEventListener('scroll',()=>{
-      const idx=Math.round(track.scrollLeft/(track.scrollWidth/dots.length));
-      dots.forEach((d,i)=>d.classList.toggle('active',i===idx));
-      depoIdx=idx;
-    },{passive:true});
-    dots.forEach((d,i)=>d.addEventListener('click',()=>{
-      depoGoTo(i);
-      depoStartAuto();
-    }));
-    track.addEventListener('touchstart',()=>clearInterval(depoAuto),{passive:true});
-    track.addEventListener('touchend',()=>depoStartAuto(),{passive:true});
-    depoStartAuto();
+    track.addEventListener('scroll',paint,{passive:true});
+    window.addEventListener('resize',paint);
+    dots.forEach((d,i)=>d.addEventListener('click',()=>{depoGoTo(i);depoStartAuto()}));
+    // pausa enquanto o dedo está na esteira
+    track.addEventListener('touchstart',()=>{paused=true},{passive:true});
+    track.addEventListener('touchend',()=>{paused=false;depoStartAuto()},{passive:true});
+    track.addEventListener('mouseenter',()=>{paused=true});
+    track.addEventListener('mouseleave',()=>{paused=false});
+    // arrastar com o mouse (desktop)
+    let down=false,sx=0,sl=0,moved=false;
+    track.addEventListener('pointerdown',e=>{
+      if(e.pointerType!=='mouse')return;
+      down=true;moved=false;sx=e.clientX;sl=track.scrollLeft;
+      track.style.scrollSnapType='none';track.classList.add('dragging');
+    });
+    window.addEventListener('pointermove',e=>{
+      if(!down)return;const dx=e.clientX-sx;if(Math.abs(dx)>3)moved=true;
+      track.scrollLeft=sl-dx;
+    });
+    window.addEventListener('pointerup',()=>{
+      if(!down)return;down=false;track.classList.remove('dragging');
+      const i=Math.round(track.scrollLeft/stepW());
+      track.style.scrollSnapType='';depoGoTo(i);depoStartAuto();
+    });
+    track.addEventListener('dragstart',e=>e.preventDefault());
+    paint();depoStartAuto();
   }
 
   // Inactivity popup
@@ -1028,3 +1246,4 @@ footer p{font-size:.76rem;color:var(--g3)}
   document.getElementById('popupClose').addEventListener('click',()=>popup.classList.remove('visible'));
   popup.addEventListener('click',e=>{if(e.target===popup)popup.classList.remove('visible')});
 </script>
+</body></html>
